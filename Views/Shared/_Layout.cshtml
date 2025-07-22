@@ -10,8 +10,9 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark border-bottom box-shadow mb-3">
             <div class="container-fluid">
+                <img src="~/css/logo.png" alt="Logo BR Borracharia" height="40">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">BR Borracharia</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
@@ -20,16 +21,13 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Inicio</a>
+                            <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Index">Inicio</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Services">Serviços</a>
+                            <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Services">Serviços</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Contacts">Contatos </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacidade</a>
+                            <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Contacts">Contatos </a>
                         </li>
                         
                     </ul>
@@ -37,17 +35,36 @@
             </div>
         </nav>
     </header>
+
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
+
+    <div class="whatsapp-fixed-card">
+        <div class="card bg-success text-white text-center shadow-lg">
+            <div class="card-body p-3">
+                <h6 class="card-title mb-1">Fale Conosco!</h6>
+                <a href="https://wa.me/557488295333?text=Olá,%20gostaria%20de%20um%20orçamento%20para%20serviços%20de%20borracharia."
+                   target="_blank"
+                   class="btn btn-light btn-sm mt-1">
+                    <img src="~/css/whatsapp-icon.png.jpg" alt="WhatsApp" style="width: 20px; height: 20px; vertical-align: middle;"> WhatsApp
+                </a>
+            </div>
+        </div>
+    </div>
+
+    @* Seu footer aqui *@
+
+    <footer class="border-top footer text-white ">
         <div class="container">
-            &copy; 2025 - BR Borracharia - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacidade      Site feito por: Natanael V. Santos</a>
+            &copy; 2025 - BR Borracharia - By Natanael V. Santos
         </div>
     </footer>
+
+    @* Seus scripts JS aqui *@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
