@@ -1,0 +1,57 @@
+name: Compilar e implantar o aplicativo .NET Core no aplicativo Web BRBorracharia20250722203923
+on:
+  push:
+    branches:
+    - Base-v2
+env:
+  AZURE_WEBAPP_NAME: BRBorracharia20250722203923
+  AZURE_WEBAPP_PACKAGE_PATH: .\published
+  CONFIGURATION: Release
+  DOTNET_CORE_VERSION: 8.0.x
+  # Altere WORKING_DIRECTORY para o caminho do seu arquivo de projeto ou solução,
+  # por exemplo, 'src/BRBorracharia.Web/BRBorracharia.Web.csproj' ou 'BRBorracharia.sln'
+  WORKING_DIRECTORY: "SeuNomeDoProjetoOuSolucao.csproj" # <--- ATENÇÃO: ALTERE ISSO!
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Setup .NET SDK
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: ${{ env.DOTNET_CORE_VERSION }}
+    - name: Restore
+      # Usando o caminho completo do arquivo de projeto/solução
+      run: dotnet restore "${{ env.WORKING_DIRECTORY }}"
+    - name: Build
+      # Usando o caminho completo do arquivo de projeto/solução
+      run: dotnet build "${{ env.WORKING_DIRECTORY }}" --configuration ${{ env.CONFIGURATION }} --no-restore
+    - name: Test
+      # Usando o caminho completo do arquivo de projeto/solução
+      run: dotnet test "${{ env.WORKING_DIRECTORY }}" --no-build
+    - name: Publish
+      # Usando o caminho completo do arquivo de projeto/solução
+      run: dotnet publish "${{ env.WORKING_DIRECTORY }}" --configuration ${{ env.CONFIGURATION }} --no-build --output "${{ env.AZURE_WEBAPP_PACKAGE_PATH }}"
+    - name: Publish Artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: webapp
+        path: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
+  deploy:
+    runs-on: windows-latest
+    needs: build
+    steps:
+    - name: Download artifact from build job
+      uses: actions/download-artifact@v4
+      with:
+        name: webapp
+        path: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
+    - name: Azure Login
+      uses: azure/login@v2
+      with:
+        creds: ${{ secrets.BRBorracharia20250722203923_SPN }}
+    - name: Deploy to Azure WebApp
+      uses: azure/webapps-deploy@v2
+      with:
+        app-name: ${{ env.AZURE_WEBAPP_NAME }}
+        package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
