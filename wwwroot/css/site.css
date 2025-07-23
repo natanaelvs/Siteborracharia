@@ -19,6 +19,42 @@ html {
 
 body {
     margin-bottom: 60px;
-    background-color: black; /* 
+    background-color: black; 
+}
+
+/* Estilos para o Card Fixo do WhatsApp */
+.whatsapp-fixed-card {
+    position: fixed; /* Fixa o elemento na tela */
+    bottom: 20px; /* 20px da parte inferior da tela */
+    left: 20px; /* 20px da parte esquerda da tela */
+    z-index: 1050; /* Garante que o card fique acima de outros elementos (ex: navbar tem z-index 1030) */
+}
+
+    /* Opcional: Estilo para o ícone do WhatsApp */
+    .whatsapp-fixed-card .btn img {
+        margin-right: 5px; /* Espaçamento entre o ícone e o texto "WhatsApp" */
+    }
+
+/* Opcional: Esconde o card em telas muito pequenas, se desejar */
+@media (max-width: 576px) { /* Para telas menores que 576px (xs - extra small) */
+    .whatsapp-fixed-card {
+        display: none; /* Oculta o card */
+    }
+}
+
+.div1 {
+    margin-bottom: 20px; /* Espaço de 20 pixels abaixo da div */
+    background-color: lightblue;
+    padding: 10px;
+    width: 150px;
+    height: 100px;
+}
+
+.div2 {
+    margin-top: 20px; /* Espaço de 20 pixels acima da div */
+    background-color: lightgreen;
+    padding: 10px;
+    width: 150px;
+    height: 100px;
 }
 
