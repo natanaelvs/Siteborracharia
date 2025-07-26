@@ -3,7 +3,6 @@
 <head>
 
     <link rel="icon" href="~/css/icon.ico" />
-
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - BR Borracharia</title>
@@ -16,7 +15,7 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark border-bottom box-shadow mb-3">
             <div class="container-fluid">
-                <img src="~/css/logo.png" alt="Logo BR Borracharia" height="40" class="me-2">
+                <img src="~/css/icon.png" alt="Logo BR Borracharia" height="40" class="me-2">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">BR Borracharia</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
@@ -29,14 +28,12 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Index" asp-fragment="Mais">Mais</a>
-                        </li>
-                       
+                        </li>                      
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
-
     <div class="container flex-grow-1">
         <main role="main" class="pb-3">
             @RenderBody()
@@ -55,17 +52,14 @@
             </div>
         </div>
     </div>
-
     <footer class="border-top footer text-white bg-dark py-3">
         <div class="container text-center">
             © @DateTime.Now.Year - BR Borracharia - Organização: Maicon
         </div>
     </footer>
-
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
-
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
