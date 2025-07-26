@@ -1,71 +1,108 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
+@{
+    // Define o título específico desta View. Ele aparecerá na aba do navegador.
+    ViewData["Title"] = "Início - BR Borracharia"; // O título base do layout é "BR Borracharia"
+}
 
-    <link rel="icon" href="~/css/icon.ico" />
+<div class="text-center text-white py-5 **fundo-preto-total**">
+    <h1 class="display-3 mb-3">BR Borracharia</h1>
+    <p class="lead">Aqui a qualidade é a nossa garantia.</p>
+</div>
 
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - BR Borracharia</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/Siteborracharia.styles.css" asp-append-version="true" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-</head>
-<body class="d-flex flex-column min-vh-100 fundo-preto-total">
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <img src="~/css/logo.png" alt="Logo BR Borracharia" height="40" class="me-2">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">BR Borracharia</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Index">Início</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Index" asp-fragment="Mais">Mais</a>
-                        </li>
-                       
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
+<hr class="my-5 border-white">
 
-    <div class="container flex-grow-1">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
-
-    <div class="whatsapp-fixed-card">
-        <div class="card bg-success text-white text-center shadow-lg">
-            <div class="card-body p-3">
-                <h6 class="card-title mb-1">Fale Conosco!</h6>
-                <a href="https://wa.me/557488295333?text=Olá,%20gostaria%20de%20um%20orçamento%20para%20serviços%20de%20borracharia."
-                   target="_blank"
-                   class="btn btn-light btn-sm mt-1">
-                    <img src="~/css/whatsapp-icon.png.jpg" alt="WhatsApp" style="width: 20px; height: 20px; vertical-align: middle; margin-right: 5px;"> WhatsApp
-                </a>
-            </div>
+<div class="container my-5">
+    <div class="row align-items-center">
+        <div class="col-lg-6 text-center text-lg-start text-white">
+            <h1 class="display-4 mb-4 text-primary">Sua Segurança em Nossas Mãos!</h1>
+            <p class="lead mb-4">
+                Com anos de experiência e paixão pelo que fazemos, a BR Borracharia é o seu parceiro de confiança
+                quando o assunto é o cuidado com os pneus e a segurança do seu veículo.
+                Nossa missão é oferecer serviços de borracharia de alta qualidade, com agilidade, transparência e o melhor custo-benefício.
+            </p>
+            <hr class="my-5 border-primary">
+            <p class="text-white">
+                Na BR Borracharia, a sua tranquilidade é a nossa prioridade.
+            </p>
+            <a href="#servicos" class="btn btn-primary btn-lg mt-3">Ver Nossos Serviços <i class="bi bi-arrow-down-circle-fill"></i></a>
+        </div>
+        <div class="col-lg-6 text-center">
+            <img src="~/css/só aqui! (2).png" class="img-fluid rounded shadow" alt="BR Borracharia: Pneus e Segurança Veicular">
         </div>
     </div>
+</div>
 
-    <footer class="border-top footer text-white bg-dark py-3">
-        <div class="container text-center">
-            © @DateTime.Now.Year - BR Borracharia - Organização: Maicon
+<hr class="my-5 border-white">
+
+<div id="sobre" class="container my-5 text-white text-center">
+    <h2 class="display-4 mb-4 text-primary">Quem Somos</h2>
+    <p class="lead mb-4">
+        A BR Borracharia tem sido um pilar na comunidade de Barra.
+        Começamos com a missão de oferecer serviços de alta qualidade com um atendimento excepcional.
+        Nossa equipe é dedicada a garantir a segurança e a satisfação dos nossos clientes.
+        Confiabilidade e paixão pelo que fazemos nos definem!
+    </p>
+</div>
+
+<hr class="my-5 border-white">
+
+<div id="servicos" class="container my-5">
+    <h2 class="text-center display-4 mb-4 text-primary">Nossos Serviços</h2>
+    <p class="text-center lead text-white mb-5">
+        Tudo para atender às suas necessidades, com a qualidade BR Borracharia.
+    </p>
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+            <ul class="list-group">
+                <li class="list-group-item d-flex justify-content-between align-items-center bg-dark text-white">
+                    Montagem e Desmontagem de Pneus
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center bg-dark text-white">
+                    Borracharia em Geral
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center bg-dark text-white">
+                    Conserto de Pneus e Câmaras de Ar
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center bg-dark text-white">
+                    Venda de Pneus Novos e Usados
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center bg-dark text-white">
+                    Calibragem de Pneus
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center bg-dark text-white">
+                    Temos também peças para motos e mais...
+                </li>
+            </ul>
         </div>
-    </footer>
+    </div>
+</div>
 
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
+<hr class="my-5 border-white">
 
-    @await RenderSectionAsync("Scripts", required: false)
-</body>
-</html>
+<div id="localizacao" class="container my-5 text-center text-white">
+    <h2 class="display-4 mb-4 text-primary">Nossa Localização</h2>
+    <p class="lead mb-4">
+        Venha nos visitar em Barra/Ba! Estamos prontos para atender você.
+    </p>
+    <p>
+        R. do Cemitério, 900, PX a Oficina de Guerem<br>
+        Barra/Bahia - Brasil
+    </p>
+    <div class="ratio ratio-16x9 mt-4" style="max-width: 800px; margin: auto;">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15447.01353683884!2d-43.19702845!3d-12.9710356!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x717f3d8a1e2a1e1%3A0x7d8d7e0d3f8e0d3f!2sR.%20do%20Cemit%C3%A9rio%2C%20900%2C%20Barra%20-%20BA%2C%2047190-000%2C%20Brazil!5e0!3m2!1sen!2sus!4v1721703600000!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+</div>
+
+<hr class="my-5 border-white">
+
+<div id="contato" class="container my-5 text-center text-white">
+    <h2 class="display-4 mb-4 text-primary">Entre em Contato!</h2>
+    <p class="lead mb-4">
+        Fale conosco agora mesmo!
+    </p>
+    <a href="https://wa.me/557488295333?text=Olá,%20gostaria%20de%20um%20orçamento." target="_blank" class="btn btn-success btn-lg">
+        <img src="~/css/whatsapp-icon.png.jpg" alt="WhatsApp" style="width: 24px; height: 24px; vertical-align: middle; margin-right: 8px;"> Chamar no WhatsApp
+    </a>
+    <p class="mt-4">
+        Ou visite-nos: <br> R. do Cemitério, 900, PX a Oficina de Guerem - Barra/BA
+    </p>
+</div>
