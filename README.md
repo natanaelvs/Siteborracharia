@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+
+    <link rel="icon" href="~/css/icon.ico" />
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - BR Borracharia</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Siteborracharia.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<body class="d-flex flex-column min-vh-100 fundo-preto-total">
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark border-bottom box-shadow mb-3">
+            <div class="container-fluid">
+                <img src="~/css/logo.png" alt="Logo BR Borracharia" height="40" class="me-2">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">BR Borracharia</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Index">Início</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Index" asp-fragment="Mais">Mais</a>
+                        </li>
+                       
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container flex-grow-1">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <div class="whatsapp-fixed-card">
+        <div class="card bg-success text-white text-center shadow-lg">
+            <div class="card-body p-3">
+                <h6 class="card-title mb-1">Fale Conosco!</h6>
+                <a href="https://wa.me/557488295333?text=Olá,%20gostaria%20de%20um%20orçamento%20para%20serviços%20de%20borracharia."
+                   target="_blank"
+                   class="btn btn-light btn-sm mt-1">
+                    <img src="~/css/whatsapp-icon.png.jpg" alt="WhatsApp" style="width: 20px; height: 20px; vertical-align: middle; margin-right: 5px;"> WhatsApp
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <footer class="border-top footer text-white bg-dark py-3">
+        <div class="container text-center">
+            © @DateTime.Now.Year - BR Borracharia - Organização: Maicon
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
