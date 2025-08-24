@@ -11,6 +11,22 @@ public class HomeController : Controller
     {
         return View();
     }
-    
-    // Se você removeu as ações Services() e Contacts(), pode deixar apenas a Index.
+
+    public IActionResult Sobre()
+    {
+        return View();
+    }
+    public IActionResult Servicos() 
+    {
+        return View();
+    }
+    public IActionResult Fotos()
+    {
+        return View();
+    }
+    public IActionResult Produtos()
+    {
+        return View();
+    }
+
 }

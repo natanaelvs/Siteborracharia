@@ -58,3 +58,8 @@ body {
     height: 100px;
 }
 
+css
+.fundo-preto-total {
+    background-color: #000; /* Cor preta */
+}
+
