@@ -1,0 +1,73 @@
+﻿
+@{
+    ViewData["Title"] = "Fotos";
+}
+
+<div class="text-center text-white py- **fundo-preto-total**">
+    <h1 class="display-2 mb-2">BR Borracharia</h1>
+    <p class="lead">Aqui a qualidade é a nossa garantia.</p>
+</div>
+
+
+    <div class="row">
+        <div class="col-lg-4 col-md-6 mb-4">
+            <a href="#" data-bs-toggle="modal" data-bs-target="#galleryModal" data-bs-img-src="/img/galeria/imagem1_grande.jpg">
+                <img src="~/imagens/mascote.png" class="img-fluid rounded shadow-sm" alt="Descrição da Imagem 1">
+            </a>
+        </div>
+
+        <div class="col-lg-4 col-md-6 mb-4">
+            <a href="#" data-bs-toggle="modal" data-bs-target="#galleryModal" data-bs-img-src="/img/galeria/imagem2_grande.jpg">
+                <img src="~/imagens/logo comp.png" class="img-fluid rounded shadow-sm" alt="Descrição da Imagem 2">
+            </a>
+        </div>
+
+        <div class="col-lg-4 col-md-6 mb-4">
+            <a href="#" data-bs-toggle="modal" data-bs-target="#galleryModal" data-bs-img-src="/img/galeria/imagem3_grande.jpg">
+                <img src="~/imagens/domici.png" class="img-fluid rounded shadow-sm" alt="Descrição da Imagem 3">
+            </a>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="modal fade" id="galleryModal" tabindex="-1" aria-labelledby="galleryModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h5 class="modal-title" id="galleryModalLabel">Visualizador de Imagem</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body text-center">
+                <img src="" class="img-fluid" id="modalImage" alt="Imagem da Galeria em tamanho maior">
+            </div>
+
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        // Pega a referência do modal
+        var galleryModal = document.getElementById('galleryModal');
+
+        // Adiciona um 'escutador' de eventos que é acionado QUANDO o modal está prestes a ser mostrado
+        galleryModal.addEventListener('show.bs.modal', function (event) {
+
+            // Botão/link que acionou o modal
+            var triggerElement = event.relatedTarget;
+
+            // Pega o caminho da imagem grande do atributo 'data-bs-img-src'
+            var imageSrc = triggerElement.getAttribute('data-bs-img-src');
+
+            // Pega a tag <img> de dentro do modal
+            var modalImage = galleryModal.querySelector('#modalImage');
+
+            // Atualiza o atributo 'src' da imagem do modal com o caminho da imagem clicada
+            modalImage.src = imageSrc;
+        });
+    </script>
+}
